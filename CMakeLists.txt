@@ -11,7 +11,6 @@ string(TOUPPER ${MODULE_NAME} MODULE_NAME_UPPER)
 
 #-----------------------------------------------------------------------------
 find_package(Slicer REQUIRED)
-message(FATAL_ERROR "Slicer use file: -${Slicer_USE_FILE}-")
 include(${Slicer_USE_FILE})
 
 #-----------------------------------------------------------------------------
@@ -61,18 +60,18 @@ set(MODULE_RESOURCES
   )
 
 #-----------------------------------------------------------------------------
-slicerMacroBuildLoadableModule(
-  NAME ${MODULE_NAME}
-  EXPORT_DIRECTIVE ${MODULE_EXPORT_DIRECTIVE}
-  INCLUDE_DIRECTORIES ${MODULE_INCLUDE_DIRECTORIES}
-  SRCS ${MODULE_SRCS}
-  MOC_SRCS ${MODULE_MOC_SRCS}
-  UI_SRCS ${MODULE_UI_SRCS}
-  TARGET_LIBRARIES ${MODULE_TARGET_LIBRARIES}
-  RESOURCES ${MODULE_RESOURCES}
-  WITH_GENERIC_TESTS
-  )
-
+#slicerMacroBuildLoadableModule(
+#  NAME ${MODULE_NAME}
+#  EXPORT_DIRECTIVE ${MODULE_EXPORT_DIRECTIVE}
+#  INCLUDE_DIRECTORIES ${MODULE_INCLUDE_DIRECTORIES}
+#  SRCS ${MODULE_SRCS}
+#  MOC_SRCS ${MODULE_MOC_SRCS}
+#  UI_SRCS ${MODULE_UI_SRCS}
+#  TARGET_LIBRARIES ${MODULE_TARGET_LIBRARIES}
+#  RESOURCES ${MODULE_RESOURCES}
+#  WITH_GENERIC_TESTS
+#  )
+include(${Slicer_EXTENSION_GENERATE_CONFIG})
 #-----------------------------------------------------------------------------
 if(BUILD_TESTING)
   add_subdirectory(Testing)
